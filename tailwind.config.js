@@ -2,7 +2,19 @@
 export default {
     content: ['./src/**/*.{html,js,svelte,ts}'],
     theme: {
-        extend: {}
+        extend: {
+            fontFamily: {
+                sans: ['Inter', 'sans-serif', 'system-ui']
+            },
+            colors: {
+                background: 'hsl(var(--background) / <alpha-value>)',
+                surface: 'hsl(var(--surface) / <alpha-value>)'
+            }
+        }
     },
-    plugins: []
+    plugins: [
+        function ({ addVariant }) {
+            addVariant('theme-dark', '[data-theme="dark"] &');
+        }
+    ]
 };

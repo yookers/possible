@@ -29,7 +29,7 @@
 
 <div
     data-tauri-drag-region
-    class="fixed left-0 top-0 z-50 flex h-10 w-full select-none items-center justify-between border-b border-[#26264c] bg-[#1a1a2e]"
+    class="fixed left-0 top-0 z-50 flex h-10 w-full select-none items-center justify-between border-b border-surface bg-background"
 >
     <div class="flex h-full items-center px-4">
         <p data-tauri-drag-region class="text-sm font-medium">Possible</p>
