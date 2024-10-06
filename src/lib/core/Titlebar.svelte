@@ -6,7 +6,7 @@
     import RiCloseLine from 'svelte-remixicon/RiCloseLine.svelte';
     import RiSubtractLine from 'svelte-remixicon/RiSubtractLine.svelte';
 
-    // @ts-ignore: Does not detect __TAURI__.window
+    // @ts-expect-error: Does not detect __TAURI__.window
     const { getCurrentWindow } = window.__TAURI__.window;
 
     const appWindow: Window = getCurrentWindow();
