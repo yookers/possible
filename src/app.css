@@ -9,5 +9,9 @@
     [data-theme='dark'] {
         --background: 240 13% 10%;
         --surface: 230 15% 12%;
+        --surface-hover: 232 14% 28%;
+
+        --text: 206 30% 91%;
+        --text-muted: 216 16% 66%;
     }
 }

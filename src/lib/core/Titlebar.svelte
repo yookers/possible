@@ -37,13 +37,13 @@
 
     <div class="flex h-full items-center">
         <button
-            class="flex h-full w-12 items-center justify-center hover:bg-slate-600"
+            class="flex h-full w-12 items-center justify-center hover:bg-surface-hover"
             onclick={() => appWindow.minimize()}
         >
             <RiSubtractLine class="size-4" />
         </button>
         <button
-            class="flex h-full w-12 items-center justify-center hover:bg-slate-600"
+            class="flex h-full w-12 items-center justify-center hover:bg-surface-hover"
             onclick={() => appWindow.toggleMaximize()}
         >
             {#if isMaximized}

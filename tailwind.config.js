@@ -8,7 +8,14 @@ export default {
             },
             colors: {
                 background: 'hsl(var(--background) / <alpha-value>)',
-                surface: 'hsl(var(--surface) / <alpha-value>)'
+                surface: {
+                    DEFAULT: 'hsl(var(--surface) / <alpha-value>)',
+                    hover: 'hsl(var(--surface-hover) / <alpha-value>)'
+                },
+                text: {
+                    DEFAULT: 'hsl(var(--text) / <alpha-value>)',
+                    muted: 'hsl(var(--text-muted) / <alpha-value>)'
+                }
             }
         }
     },
