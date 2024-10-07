@@ -40,7 +40,7 @@
             class="flex h-full w-12 items-center justify-center hover:bg-slate-600"
             onclick={() => appWindow.minimize()}
         >
-            <RiSubtractLine class="size-5" />
+            <RiSubtractLine class="size-4" />
         </button>
         <button
             class="flex h-full w-12 items-center justify-center hover:bg-slate-600"
