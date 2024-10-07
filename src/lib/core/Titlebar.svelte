@@ -1,25 +1,22 @@
 <script lang="ts">
-    import type { Window } from '@tauri-apps/api/window';
+    import { getCurrentWindow, type Window } from '@tauri-apps/api/window';
     import { onDestroy, onMount } from 'svelte';
     import RiCheckboxBlankLine from 'svelte-remixicon/RiCheckboxBlankLine.svelte';
     import RiCheckboxMultipleBlankLine from 'svelte-remixicon/RiCheckboxMultipleBlankLine.svelte';
     import RiCloseLine from 'svelte-remixicon/RiCloseLine.svelte';
     import RiSubtractLine from 'svelte-remixicon/RiSubtractLine.svelte';
 
-    // @ts-expect-error: Does not detect __TAURI__.window
-    const { getCurrentWindow } = window.__TAURI__.window;
+    const app_window: Window = getCurrentWindow();
 
-    const appWindow: Window = getCurrentWindow();
-
-    let isMaximized = $state(false);
+    let is_maximized = $state(false);
     let unlisten: () => void;
 
-    async function updateIsMaximized() {
-        isMaximized = await appWindow.isMaximized();
+    async function update_is_maximized() {
+        is_maximized = await app_window.isMaximized();
     }
 
     onMount(async () => {
-        unlisten = await appWindow.onResized(updateIsMaximized);
+        unlisten = await app_window.onResized(update_is_maximized);
     });
 
     onDestroy(() => {
@@ -29,7 +26,7 @@
 
 <div
     data-tauri-drag-region
-    class="fixed left-0 top-0 z-50 flex h-10 w-full select-none items-center justify-between border-b border-surface bg-background"
+    class="border-surface bg-background fixed left-0 top-0 z-50 flex h-10 w-full select-none items-center justify-between border-b"
 >
     <div class="flex h-full items-center px-4">
         <p data-tauri-drag-region class="text-sm font-medium">Possible</p>
@@ -37,16 +34,16 @@
 
     <div class="flex h-full items-center">
         <button
-            class="flex h-full w-12 items-center justify-center hover:bg-surface-hover"
-            onclick={() => appWindow.minimize()}
+            class="hover:bg-surface-hover flex h-full w-12 items-center justify-center"
+            onclick={() => app_window.minimize()}
         >
             <RiSubtractLine class="size-4" />
         </button>
         <button
-            class="flex h-full w-12 items-center justify-center hover:bg-surface-hover"
-            onclick={() => appWindow.toggleMaximize()}
+            class="hover:bg-surface-hover flex h-full w-12 items-center justify-center"
+            onclick={() => app_window.toggleMaximize()}
         >
-            {#if isMaximized}
+            {#if is_maximized}
                 <RiCheckboxMultipleBlankLine class="size-3.5" />
             {:else}
                 <RiCheckboxBlankLine class="size-3.5" />
@@ -54,7 +51,7 @@
         </button>
         <button
             class="flex h-full w-12 items-center justify-center hover:bg-red-600"
-            onclick={() => appWindow.close()}
+            onclick={() => app_window.close()}
         >
             <RiCloseLine class="size-5" />
         </button>

@@ -1,10 +1,10 @@
 <script lang="ts">
     import { invoke } from '@tauri-apps/api/core';
+    import { platform } from '@tauri-apps/plugin-os';
     import { onMount } from 'svelte';
 
     let name = '';
     let greetMsg = '';
-    const { platform } = window.__TAURI__.os;
     let current_platform = '';
 
     onMount(async () => {
