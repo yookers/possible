@@ -15,3 +15,26 @@
         --text-muted: 216 16% 66%;
     }
 }
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    margin-top: 40px; /* Space for the window title bar */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(var(--surface-hover));
+    border-radius: 12px;
+    border: 6px solid transparent; /* Padding for larger hitbox. */
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--text-muted));
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
